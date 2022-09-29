@@ -1,0 +1,14 @@
+.img-fluid {
+    height: 250px;
+    margin-left: 20%;
+    background-color: rgb(0, 0, 0);
+}
+
+.login {
+ color: white;
+}
+
+.img-fluid {
+    height: 500px;
+    margin-bottom: 0px;
+   }

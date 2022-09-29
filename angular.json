@@ -1,11 +1,18 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "4aa975b3-6e2c-40ab-b961-b1a2bb7363e1"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "miloginchat": {
+    "login-firebase": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/miloginchat",
+            "outputPath": "dist/login-firebase",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,7 +30,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -32,13 +41,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 }
               ],
               "fileReplacements": [
@@ -64,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "miloginchat:build:production"
+              "browserTarget": "login-firebase:build:production"
             },
             "development": {
-              "browserTarget": "miloginchat:build:development"
+              "browserTarget": "login-firebase:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "miloginchat:build"
+            "browserTarget": "login-firebase:build"
           }
         },
         "test": {
@@ -97,5 +106,6 @@
         }
       }
     }
-  }
+  },
+  "defaultProject": "login-firebase"
 }

@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/miloginchat'),
+      dir: require('path').join(__dirname, './coverage/login-firebase'),
       subdir: '.',
       reporters: [
         { type: 'html' },

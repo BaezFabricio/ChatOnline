@@ -1,0 +1,51 @@
+<div class="wrapper"> 
+    <div *ngIf = "!loading" class="body">
+        <img  class = "logo" src="../../../assets/img/login.png" alt="login">
+            <h1 class=login>Login</h1>
+        <form (ngSubmit)="login()" [formGroup]="loginUsuario">
+            <div class="form-floating mb-3">
+                <input type="email" formControlName="email" class="form-control" placeholder="name@example.com">
+                    <label class="usuario">Usuario</label>
+                <span *ngIf="loginUsuario.get('email')?.hasError('required') &&  loginUsuario.get('email')?.touched" class="text-danger" >
+                    (El <strong>correo</strong> es requerido)
+                </span>
+                  <span *ngIf="loginUsuario.get('email')?.hasError('email') &&  loginUsuario.get('email')?.touched" class="text-danger" >
+                    (El <strong>correo</strong> es invalido)
+                  </span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="password" formControlName="password" class="form-control"  placeholder="Password">
+                    <label >Contraseña</label>
+                <span *ngIf="loginUsuario.get('password')?.hasError('required') &&  loginUsuario.get('password')?.touched" class="text-danger" >
+                    (La <strong>contraseña</strong> es requerida)
+                </span>
+            </div>
+
+            <div class="d-primary gap-2">
+                <button  type="submit" class="btn btn-outline-light btn-lg" [disabled]="loginUsuario.invalid">Ingresar</button>         
+            </div>
+
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                <button  type="button" class="btn btn-danger mt-3 btn-lg" (click)="loginGoogle()">Google</button>
+                <button  type="button" class="btn btn-dark mt-3 btn-lg" (click)="loginGitHub()">GitHub</button>         
+                <button  type="button" class="btn btn-primary mt-3 btn-lg" (click)="loginFacebook()">Facebook</button>         
+            </div>
+        </form>
+
+        <div class="text-center">
+            <p class="gap-2 mt-3">No tienes cuenta? <a routerLink="/registrar-usuario">Registrar</a> </p>
+            <a class="gap-2 mt-3" routerLink="/recuperar-pass-word">Recuperar contraseña</a>
+        </div>
+
+
+        <app-spinner *ngIf = "loading"></app-spinner>
+    </div> 
+        <div class="col-md-9 col-lg-5 col-xl-6 mb-5 d-xs-none d-md-block d-lg-block d-xl-block d-xxl-block d-sm-none d-none">
+            <img src="https://i.gifer.com/4Cb2.gif"class="img-fluid" alt="Funny image">
+        </div>
+    
+</div> 
+
+
+
